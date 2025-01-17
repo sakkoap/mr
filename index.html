@@ -3,30 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Display</title>
+    <title>Cafe Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            color: white;
+        }
+        #status {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        #time {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Current Time in CET:</h1>
+
+    <div id="status"></div>
     <div id="time"></div>
 
     <script>
-        function displayTime() {
+        function checkCafeStatus() {
+            // Manually set the opening and closing hours here (24-hour format)
+            const openingTime = 9; // Cafe opens at 9:00 AM
+            const closingTime = 18; // Cafe closes at 6:00 PM
+
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const isOpen = hours >= openingTime && hours < closingTime;
+
+            // Set the status text and background color based on whether the cafe is open or closed
+            const statusElement = document.getElementById('status');
+            const bodyElement = document.body;
+
+            if (isOpen) {
+                statusElement.textContent = "Open :-)";
+                bodyElement.style.backgroundColor = "green";
+            } else {
+                statusElement.textContent = "Closed :-(";
+                bodyElement.style.backgroundColor = "red";
+            }
+
+            // Display current time in CET (Central European Time)
             const options = {
-                timeZone: 'Europe/Paris',  // CET time zone (Europe/Paris is a good representation for CET)
+                timeZone: 'Europe/Paris',
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit',
-                hour12: false  // 24-hour format
+                hour12: false
             };
-
-            const now = new Date();
             const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(now);
-
-            document.getElementById('time').textContent = formattedTime;
+            document.getElementById('time').textContent = `Current Time: ${formattedTime}`;
         }
 
-        // Update the time every second
-        setInterval(displayTime, 1000);
+        // Update the status and time every minute (60000 ms)
+        checkCafeStatus();
+        setInterval(checkCafeStatus, 60000);
     </script>
+
 </body>
 </html>
