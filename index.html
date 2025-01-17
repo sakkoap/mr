@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Display</title>
+</head>
+<body>
+    <h1>Current Time in CET:</h1>
+    <div id="time"></div>
+
+    <script>
+        function displayTime() {
+            const options = {
+                timeZone: 'Europe/Paris',  // CET time zone (Europe/Paris is a good representation for CET)
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false  // 24-hour format
+            };
+
+            const now = new Date();
+            const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(now);
+
+            document.getElementById('time').textContent = formattedTime;
+        }
+
+        // Update the time every second
+        setInterval(displayTime, 1000);
+    </script>
+</body>
+</html>
