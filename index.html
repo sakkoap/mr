@@ -27,7 +27,7 @@
             font-size: 24px;
         }
         .status-text {
-            color: white; /* Ensures status text is white */
+            color: white;
         }
     </style>
 </head>
@@ -62,8 +62,8 @@
         function displayStatus(openingTimes) {
             const now = new Date();
             const currentTimeDecimal = now.getHours() + now.getMinutes() / 60;
-            const todayDate = now.toISOString().split('T')[0]; // format: yyyy-mm-dd
-            const tomorrowDate = new Date(new Date().setDate(now.getDate() + 1)).toISOString().split('T')[0]; // format: yyyy-mm-dd
+            const todayDate = now.toISOString().split('T')[0]; // Format: yyyy-mm-dd
+            const tomorrowDate = new Date(now.getTime() + 86400000).toISOString().split('T')[0]; // Add 1 day
 
             const today = openingTimes.find(entry => entry.date === todayDate);
             const tomorrow = openingTimes.find(entry => entry.date === tomorrowDate);
@@ -105,7 +105,7 @@
             document.getElementById('openingTimes').innerHTML = openingTimesHTML;
         }
 
-        // Convert time to decimal hours (e.g., "10:30" -> 10.5, "9" -> 9)
+        // Convert time to decimal hours (e.g., "10:30" -> 10.5)
         function timeToDecimal(time) {
             if (typeof time === 'string') {
                 const [hours, minutes] = time.split(':').map(Number);
