@@ -27,6 +27,9 @@
         h2 {
             font-size: 24px;
         }
+        .statusText {
+            color: white; /* Ensures that the status text is always white */
+        }
     </style>
 </head>
 <body>
@@ -92,7 +95,7 @@
             let openingTimesHTML = `<h2>Opening Times:</h2>`;
             
             // Display today's opening time with status (text color white)
-            openingTimesHTML += `<strong>Today:</strong> ${today.opening}:00 - ${today.closing === 0 ? '00:00' : today.closing + ':00'} - <span style="color:white;">${today.status}</span><br>`;
+            openingTimesHTML += `<strong>Today:</strong> ${today.opening}:00 - ${today.closing === 0 ? '00:00' : today.closing + ':00'} - <span class="statusText">${today.status}</span><br>`;
             
             // Display tomorrow's opening time with status (text color white)
             if (tomorrow) {
@@ -107,7 +110,7 @@
                     tomorrowBgColor = 'orange';
                 }
 
-                openingTimesHTML += `<strong>Tomorrow:</strong> ${tomorrow.opening}:00 - ${tomorrow.closing === 0 ? '00:00' : tomorrow.closing + ':00'} - <span style="color:white;">${tomorrowStatusMessage}</span>`;
+                openingTimesHTML += `<strong>Tomorrow:</strong> ${tomorrow.opening}:00 - ${tomorrow.closing === 0 ? '00:00' : tomorrow.closing + ':00'} - <span class="statusText">${tomorrowStatusMessage}</span>`;
             }
             document.getElementById('openingTimes').innerHTML = openingTimesHTML;
 
