@@ -49,6 +49,13 @@
             return `${h}:${m < 10 ? '0' + m : m}`; // Format time like "10:30"
         }
 
+        // Format date as DD-MM
+        function formatDate(date) {
+            const day = date.getDate();
+            const month = date.getMonth() + 1; // Months are 0-based
+            return `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}`;
+        }
+
         // Fetch opening times from JSON file with cache-busting
         async function loadOpeningTimes() {
             try {
@@ -104,12 +111,12 @@
             // Display opening times for today and tomorrow
             let openingTimesHTML = `<h2>Opening Times:</h2>`;
             openingTimesHTML += today
-                ? `<strong>Today:</strong> ${formatTime(timeToDecimal(today.opening))} - ${formatTime(
+                ? `<strong>Today ${formatDate(new Date(today.date))}:</strong> ${formatTime(timeToDecimal(today.opening))} - ${formatTime(
                       today.closing === "24:00" ? 23.99 : timeToDecimal(today.closing)
                   )} - <span class="status-text">${today.status}</span><br>`
                 : `<strong>Today:</strong> No data available.<br>`;
             openingTimesHTML += tomorrow
-                ? `<strong>Tomorrow:</strong> ${formatTime(timeToDecimal(tomorrow.opening))} - ${formatTime(
+                ? `<strong>Tomorrow ${formatDate(new Date(tomorrow.date))}:</strong> ${formatTime(timeToDecimal(tomorrow.opening))} - ${formatTime(
                       timeToDecimal(tomorrow.closing)
                   )} - <span class="status-text">${tomorrow.status}</span>`
                 : `<strong>Tomorrow:</strong> No data available.`;
