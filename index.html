@@ -9,13 +9,14 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            background-color: #000;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
             color: white;
+            text-align: center;
         }
         #status {
             font-size: 5rem;
@@ -23,51 +24,66 @@
         }
         #time {
             margin-top: 20px;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
         #openingTimes {
-            margin-top: 20px;
-            font-size: 1.5rem;
+            margin-top: 30px;
+            font-size: 1.2rem;
         }
     </style>
 </head>
 <body>
-    <div id="status"></div>
+    <div id="status">Loading...</div>
     <div id="openingTimes"></div>
     <div id="time"></div>
 
     <script>
         async function loadOpeningTimes() {
-            const response = await fetch('openingTimes.json');
-            const openingTimes = await response.json();
+            try {
+                const response = await fetch('openingTimes.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const openingTimes = await response.json();
+                displayStatus(openingTimes);
+            } catch (error) {
+                console.error('Error loading opening times:', error);
+                document.getElementById('status').textContent = 'Error loading data!';
+            }
+        }
 
+        function displayStatus(openingTimes) {
             const now = new Date();
-            const hours = now.getHours();
+            const currentHour = now.getHours();
 
-            // Determine today's opening status
             const today = openingTimes[0];
-            const isOpen = today.status === "Open" && hours >= today.opening && (hours < today.closing || today.closing === 0);
+            let statusMessage = '';
+            let bgColor = '';
 
-            // Update status and background
-            const statusElement = document.getElementById('status');
-            const bodyElement = document.body;
-            if (today.status === "Open") {
-                statusElement.textContent = "Open :-)";
-                bodyElement.style.backgroundColor = "green";
-            } else if (today.status === "Closed") {
-                statusElement.textContent = "Closed :-(";
-                bodyElement.style.backgroundColor = "red";
+            // Determine today's status
+            if (today.status === 'Open' && currentHour >= today.opening && currentHour < today.closing) {
+                statusMessage = 'Open :-)';
+                bgColor = 'green';
+            } else if (today.status === 'Closed') {
+                statusMessage = 'Closed :-(';
+                bgColor = 'red';
+            } else if (today.status === 'Maybe') {
+                statusMessage = 'Maybe?';
+                bgColor = 'orange';
             } else {
-                statusElement.textContent = "Maybe?";
-                bodyElement.style.backgroundColor = "orange";
+                statusMessage = 'Closed :-(';
+                bgColor = 'red';
             }
 
-            // Display opening times for all days
-            let openingTimesHTML = "<h2>Opening Times:</h2>";
-            openingTimes.forEach(day => {
-                openingTimesHTML += `<div>${day.day}: ${day.opening}:00 - ${day.closing === 0 ? '00:00' : day.closing + ':00'} - Status: ${day.status}</div>`;
-            });
-            document.getElementById('openingTimes').innerHTML = openingTimesHTML;
+            // Update the page
+            document.body.style.backgroundColor = bgColor;
+            document.getElementById('status').textContent = statusMessage;
+
+            // Display opening times
+            const openingTimesHTML = openingTimes
+                .map(day => `${day.day}: ${day.opening}:00 - ${day.closing === 0 ? '00:00' : day.closing + ':00'} - Status: ${day.status}`)
+                .join('<br>');
+            document.getElementById('openingTimes').innerHTML = `<h2>Opening Times:</h2>${openingTimesHTML}`;
 
             // Display current time
             const options = {
@@ -79,6 +95,12 @@
             };
             const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(now);
             document.getElementById('time').textContent = `Current Time: ${formattedTime}`;
+
+            // Update time every second
+            setInterval(() => {
+                const updatedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
+                document.getElementById('time').textContent = `Current Time: ${updatedTime}`;
+            }, 1000);
         }
 
         loadOpeningTimes();
