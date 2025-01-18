@@ -27,10 +27,12 @@
         h2 {
             font-size: 24px;
         }
+        .status-text {
+            color: white; /* Ensures status text is white */
+        }
     </style>
 </head>
 <body>
-    <h1>Cafe Status</h1>
     <div id="status">Loading...</div>
     <div id="openingTimes"></div>
     <div id="time"></div>
@@ -83,51 +85,3 @@
             } else if (today.status === 'Closed') {
                 statusMessage = 'Closed :-(';
                 bgColor = 'red';
-            } else if (today.status === 'Maybe') {
-                statusMessage = 'Maybe?';
-                bgColor = 'orange';
-            } else {
-                statusMessage = 'Closed :-(';
-                bgColor = 'red';
-            }
-
-            document.body.style.backgroundColor = bgColor;
-            document.getElementById('status').textContent = statusMessage;
-
-            // Display opening times for today and tomorrow without "Status:"
-            let openingTimesHTML = `<h2>Opening Times:</h2>`;
-            openingTimesHTML += `<strong>Today:</strong> ${formatTime(today.opening)} - ${formatTime(today.closing)}<br>`;
-            if (tomorrow) {
-                openingTimesHTML += `<strong>Tomorrow:</strong> ${formatTime(tomorrow.opening)} - ${formatTime(tomorrow.closing)}`;
-            }
-            document.getElementById('openingTimes').innerHTML = openingTimesHTML;
-
-            const options = {
-                timeZone: 'Europe/Paris',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
-            };
-            const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
-            document.getElementById('time').textContent = `Current Time: ${formattedTime}`;
-
-            setInterval(() => {
-                const updatedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
-                document.getElementById('time').textContent = `Current Time: ${updatedTime}`;
-            }, 1000);
-        }
-
-        // Convert HH:MM time to decimal hours
-        function timeToDecimal(time) {
-            if (typeof time === 'string') {
-                const [hours, minutes] = time.split(':').map(Number);
-                return hours + (minutes / 60);
-            }
-            return time; // Return the time as is if it's already a number
-        }
-
-        loadOpeningTimes();
-    </script>
-</body>
-</html>
