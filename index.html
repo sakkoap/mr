@@ -122,13 +122,15 @@
             }, 1000);
         }
 
-        // Convert HH:MM time to decimal hours
+        // Convert time to decimal hours (e.g., "10:30" -> 10.5, "9" -> 9)
         function timeToDecimal(time) {
             if (typeof time === 'string') {
                 const [hours, minutes] = time.split(':').map(Number);
                 return hours + (minutes / 60);
+            } else if (typeof time === 'number') {
+                return time;
             }
-            return time; // Return the time as is if it's already a number
+            return 0;
         }
 
         loadOpeningTimes();
