@@ -72,11 +72,12 @@
             let statusMessage = 'Closed :-(';
             let bgColor = 'red';
 
+            // If there's opening data for today
             if (today) {
                 const todayOpeningDecimal = timeToDecimal(today.opening);
                 const todayClosingDecimal = today.closing === "24:00" ? 23.99 : timeToDecimal(today.closing); // Handle 24:00 correctly
 
-                // If current time is within the opening hours of today
+                // If current time is within today's opening hours
                 if (
                     today.status === 'Open' &&
                     currentTimeDecimal >= todayOpeningDecimal &&
