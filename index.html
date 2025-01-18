@@ -69,19 +69,20 @@
             // Determine today's status
             let statusMessage = '';
             let bgColor = '';
-            if (today.status === 'Open' && now.getHours() >= today.opening && now.getHours() < today.closing) {
-                statusMessage = 'Open :-)';
-                bgColor = 'green';
-            } else if (today.status === 'Closed') {
-                statusMessage = 'Closed :-(';
-                bgColor = 'red';
-            } else if (today.status === 'Maybe') {
-                statusMessage = 'Maybe?';
-                bgColor = 'orange';
-            } else {
-                statusMessage = 'Closed :-(';
-                bgColor = 'red';
-            }
+if (today.status === 'Open' && now.getHours() >= today.opening && now.getHours() < today.closing) {
+    statusMessage = 'Open :-)';
+    bgColor = 'green';
+} else if (today.status === 'Closed') {
+    statusMessage = 'Closed :-(';
+    bgColor = 'red';
+} else if (today.status === 'Maybe') {
+    statusMessage = 'Maybe?';
+    bgColor = 'orange';
+} else {
+    statusMessage = 'Closed :-(';
+    bgColor = 'red';
+}
+
 
             // Update the page
             document.body.style.backgroundColor = bgColor;
