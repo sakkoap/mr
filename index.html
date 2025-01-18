@@ -53,13 +53,15 @@
         function displayStatus(openingTimes) {
             const now = new Date();
             const todayDate = now.toISOString().split('T')[0]; // format: yyyy-mm-dd
-            const tomorrowDate = new Date(now.setDate(now.getDate() + 1)).toISOString().split('T')[0]; // format: yyyy-mm-dd
+            const tomorrowDate = new Date(now);
+            tomorrowDate.setDate(now.getDate() + 1);
+            const tomorrowDateStr = tomorrowDate.toISOString().split('T')[0]; // format: yyyy-mm-dd
 
             console.log('Today:', todayDate); // Log today’s date for debugging
             console.log('Opening Times:', openingTimes); // Log the content of the JSON for debugging
 
             const today = openingTimes.find(entry => entry.date === todayDate);
-            const tomorrow = openingTimes.find(entry => entry.date === tomorrowDate);
+            const tomorrow = openingTimes.find(entry => entry.date === tomorrowDateStr);
 
             if (!today) {
                 document.getElementById('status').textContent = 'No data for today!';
@@ -69,20 +71,20 @@
             // Determine today's status
             let statusMessage = '';
             let bgColor = '';
-if (today.status === 'Open' && now.getHours() >= today.opening && now.getHours() < today.closing) {
-    statusMessage = 'Open :-)';
-    bgColor = 'green';
-} else if (today.status === 'Closed') {
-    statusMessage = 'Closed :-(';
-    bgColor = 'red';
-} else if (today.status === 'Maybe') {
-    statusMessage = 'Maybe?';
-    bgColor = 'orange';
-} else {
-    statusMessage = 'Closed :-(';
-    bgColor = 'red';
-}
 
+            if (today.status === 'Open' && now.getHours() >= today.opening && now.getHours() < today.closing) {
+                statusMessage = 'Open :-)';
+                bgColor = 'green';
+            } else if (today.status === 'Closed') {
+                statusMessage = 'Closed :-(';
+                bgColor = 'red';
+            } else if (today.status === 'Maybe') {
+                statusMessage = 'Maybe?';
+                bgColor = 'orange';
+            } else {
+                statusMessage = 'Closed :-(';
+                bgColor = 'red';
+            }
 
             // Update the page
             document.body.style.backgroundColor = bgColor;
@@ -96,7 +98,7 @@ if (today.status === 'Open' && now.getHours() >= today.opening && now.getHours()
             }
             document.getElementById('openingTimes').innerHTML = openingTimesHTML;
 
-            // Display current time
+            // Display current time in CET
             const options = {
                 timeZone: 'Europe/Paris',
                 hour: '2-digit',
