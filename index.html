@@ -25,37 +25,51 @@
             margin-top: 20px;
             font-size: 1.2rem;
         }
+        #openingTimes {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
-
     <div id="status"></div>
+    <div id="openingTimes"></div>
     <div id="time"></div>
 
     <script>
-        function checkCafeStatus() {
-            // Manually set the opening and closing hours here (24-hour format)
-            const openingTime = 10; // Cafe opens at 9:00 AM
-            const closingTime = 0; // Cafe closes at 6:00 PM
+        async function loadOpeningTimes() {
+            const response = await fetch('openingTimes.json');
+            const openingTimes = await response.json();
 
             const now = new Date();
             const hours = now.getHours();
-            const minutes = now.getMinutes();
-            const isOpen = hours >= openingTime && hours < closingTime;
 
-            // Set the status text and background color based on whether the cafe is open or closed
+            // Determine today's opening status
+            const today = openingTimes[0];
+            const isOpen = today.status === "Open" && hours >= today.opening && (hours < today.closing || today.closing === 0);
+
+            // Update status and background
             const statusElement = document.getElementById('status');
             const bodyElement = document.body;
-
-            if (isOpen) {
+            if (today.status === "Open") {
                 statusElement.textContent = "Open :-)";
                 bodyElement.style.backgroundColor = "green";
-            } else {
+            } else if (today.status === "Closed") {
                 statusElement.textContent = "Closed :-(";
                 bodyElement.style.backgroundColor = "red";
+            } else {
+                statusElement.textContent = "Maybe?";
+                bodyElement.style.backgroundColor = "orange";
             }
 
-            // Display current time in CET (Central European Time)
+            // Display opening times for all days
+            let openingTimesHTML = "<h2>Opening Times:</h2>";
+            openingTimes.forEach(day => {
+                openingTimesHTML += `<div>${day.day}: ${day.opening}:00 - ${day.closing === 0 ? '00:00' : day.closing + ':00'} - Status: ${day.status}</div>`;
+            });
+            document.getElementById('openingTimes').innerHTML = openingTimesHTML;
+
+            // Display current time
             const options = {
                 timeZone: 'Europe/Paris',
                 hour: '2-digit',
@@ -67,10 +81,7 @@
             document.getElementById('time').textContent = `Current Time: ${formattedTime}`;
         }
 
-        // Update the status and time every minute (60000 ms)
-        checkCafeStatus();
-        setInterval(checkCafeStatus, 60000);
+        loadOpeningTimes();
     </script>
-
 </body>
 </html>
