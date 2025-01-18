@@ -57,9 +57,6 @@
             tomorrowDate.setDate(now.getDate() + 1);
             const tomorrowDateStr = tomorrowDate.toISOString().split('T')[0]; // format: yyyy-mm-dd
 
-            console.log('Today:', todayDate); // Log today’s date for debugging
-            console.log('Opening Times:', openingTimes); // Log the content of the JSON for debugging
-
             const today = openingTimes.find(entry => entry.date === todayDate);
             const tomorrow = openingTimes.find(entry => entry.date === tomorrowDateStr);
 
@@ -86,13 +83,17 @@
                 bgColor = 'red';
             }
 
-            // Update the page
+            // Update the page background color based on today's status
             document.body.style.backgroundColor = bgColor;
             document.getElementById('status').textContent = statusMessage;
 
             // Display opening times for today and tomorrow with status next to them
             let openingTimesHTML = `<h2>Opening Times:</h2>`;
+            
+            // Display today's opening time with status
             openingTimesHTML += `<strong>Today:</strong> ${today.opening}:00 - ${today.closing === 0 ? '00:00' : today.closing + ':00'} - <span style="color:${bgColor};">${today.status}</span><br>`;
+            
+            // Display tomorrow's opening time with status
             if (tomorrow) {
                 let tomorrowStatusMessage = tomorrow.status;
                 let tomorrowBgColor = '';
