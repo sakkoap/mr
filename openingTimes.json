@@ -1,5 +1,9 @@
 [
-    { "day": "Today", "opening": 9, "closing": 0, "status": "Open" },
-    { "day": "Tomorrow", "opening": 9, "closing": 0, "status": "Maybe" },
-    { "day": "Day 2", "opening": 9, "closing": 0, "status": "Closed" }
+    { "day": "Today", "opening": 9, "closing": 18, "status": "Open" },
+    { "day": "Tomorrow", "opening": 9, "closing": 18, "status": "Maybe" },
+    { "day": "Day 2", "opening": 9, "closing": 18, "status": "Closed" },
+    { "day": "Day 3", "opening": 9, "closing": 18, "status": "Open" },
+    { "day": "Day 4", "opening": 9, "closing": 18, "status": "Maybe" },
+    { "day": "Day 5", "opening": 9, "closing": 18, "status": "Closed" },
+    { "day": "Day 6", "opening": 9, "closing": 18, "status": "Open" }
 ]
