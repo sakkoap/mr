@@ -71,19 +71,21 @@
             let statusMessage = 'Closed :-(';
             let bgColor = 'red';
 
-            if (
-                today &&
-                today.status === 'Open' &&
-                currentTimeDecimal >= timeToDecimal(today.opening) &&
-                currentTimeDecimal < timeToDecimal(today.closing)
-            ) {
-                // During today's opening hours
-                statusMessage = 'Open :-)';
-                bgColor = 'green';
-            } else if (today && today.status === 'Maybe') {
-                // Maybe open
-                statusMessage = 'Maybe?';
-                bgColor = 'orange';
+            if (today) {
+                const todayOpeningDecimal = timeToDecimal(today.opening);
+                const todayClosingDecimal = today.closing === "24:00" ? 24 : timeToDecimal(today.closing);
+
+                if (
+                    today.status === 'Open' &&
+                    currentTimeDecimal >= todayOpeningDecimal &&
+                    currentTimeDecimal < todayClosingDecimal
+                ) {
+                    statusMessage = 'Open :-)';
+                    bgColor = 'green';
+                } else if (today.status === 'Maybe') {
+                    statusMessage = 'Maybe?';
+                    bgColor = 'orange';
+                }
             }
 
             document.body.style.backgroundColor = bgColor;
@@ -93,7 +95,7 @@
             let openingTimesHTML = `<h2>Opening Times:</h2>`;
             openingTimesHTML += today
                 ? `<strong>Today:</strong> ${formatTime(timeToDecimal(today.opening))} - ${formatTime(
-                      timeToDecimal(today.closing)
+                      today.closing === "24:00" ? 24 : timeToDecimal(today.closing)
                   )} - <span class="status-text">${today.status}</span><br>`
                 : `<strong>Today:</strong> No data available.<br>`;
             openingTimesHTML += tomorrow
