@@ -83,7 +83,7 @@
                 const todayOpeningDecimal = timeToDecimal(today.opening);
                 const todayClosingDecimal = today.closing === "24:00" ? 23.99 : timeToDecimal(today.closing); // Handle 24:00 correctly
 
-                // If current time is within today's opening hours
+                // If current time is within today's opening hours or if past the closing time for today
                 if (
                     today.status === 'Open' &&
                     currentTimeDecimal >= todayOpeningDecimal &&
