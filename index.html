@@ -98,9 +98,11 @@
 
             // Display opening times for today and tomorrow with status in white
             let openingTimesHTML = `<h2>Opening Times:</h2>`;
-            openingTimesHTML += `<strong>Today:</strong> ${formatTime(today.opening)} - ${formatTime(today.closing)} <span class="status-text">${today.status}</span><br>`;
+            openingTimesHTML += `<strong>Today:</strong> ${formatTime(todayOpeningDecimal)} - ${formatTime(todayClosingDecimal)} <span class="status-text">${today.status}</span><br>`;
             if (tomorrow) {
-                openingTimesHTML += `<strong>Tomorrow:</strong> ${formatTime(tomorrow.opening)} - ${formatTime(tomorrow.closing)} <span class="status-text">${tomorrow.status}</span>`;
+                const tomorrowOpeningDecimal = timeToDecimal(tomorrow.opening);
+                const tomorrowClosingDecimal = timeToDecimal(tomorrow.closing);
+                openingTimesHTML += `<strong>Tomorrow:</strong> ${formatTime(tomorrowOpeningDecimal)} - ${formatTime(tomorrowClosingDecimal)} <span class="status-text">${tomorrow.status}</span>`;
             }
             document.getElementById('openingTimes').innerHTML = openingTimesHTML;
 
