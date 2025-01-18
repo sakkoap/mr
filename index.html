@@ -6,33 +6,31 @@
     <title>Cafe Status</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: black;
-            color: white;
             text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
         }
         #status {
-            font-size: 5rem;
+            font-size: 48px;
             font-weight: bold;
         }
         #time {
             margin-top: 20px;
-            font-size: 1.5rem;
+            font-size: 20px;
         }
         #openingTimes {
             margin-top: 30px;
-            font-size: 1.2rem;
+            font-size: 18px;
+        }
+        h2 {
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
+    <h1>Cafe Status</h1>
     <div id="status">Loading...</div>
     <div id="openingTimes"></div>
     <div id="time"></div>
@@ -54,8 +52,11 @@
 
         function displayStatus(openingTimes) {
             const now = new Date();
-            const todayDate = now.toISOString().split('T')[0];
-            const tomorrowDate = new Date(now.setDate(now.getDate() + 1)).toISOString().split('T')[0];
+            const todayDate = now.toISOString().split('T')[0]; // format: yyyy-mm-dd
+            const tomorrowDate = new Date(now.setDate(now.getDate() + 1)).toISOString().split('T')[0]; // format: yyyy-mm-dd
+
+            console.log('Today:', todayDate); // Log today’s date for debugging
+            console.log('Opening Times:', openingTimes); // Log the content of the JSON for debugging
 
             const today = openingTimes.find(entry => entry.date === todayDate);
             const tomorrow = openingTimes.find(entry => entry.date === tomorrowDate);
