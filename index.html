@@ -36,87 +36,88 @@
     <div id="time"></div>
 
     <script>
-        async function loadOpeningTimes() {
-            try {
-                const response = await fetch('openingTimes.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const openingTimes = await response.json();
-                displayStatus(openingTimes);
-            } catch (error) {
-                console.error('Error loading opening times:', error);
-                document.getElementById('status').textContent = 'Error loading data!';
+    async function loadOpeningTimes() {
+        try {
+            const response = await fetch('openingTimes.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
+            const openingTimes = await response.json();
+            displayStatus(openingTimes);
+        } catch (error) {
+            console.error('Error loading opening times:', error);
+            document.getElementById('status').textContent = 'Error loading data!';
+        }
+    }
+
+    function displayStatus(openingTimes) {
+        const now = new Date();
+        const todayDate = now.toISOString().split('T')[0]; // format: yyyy-mm-dd
+        const tomorrowDate = new Date(now);
+        tomorrowDate.setDate(now.getDate() + 1);
+        const tomorrowDateStr = tomorrowDate.toISOString().split('T')[0]; // format: yyyy-mm-dd
+
+        console.log('Today:', todayDate); // Log today’s date for debugging
+        console.log('Opening Times:', openingTimes); // Log the content of the JSON for debugging
+
+        const today = openingTimes.find(entry => entry.date === todayDate);
+        const tomorrow = openingTimes.find(entry => entry.date === tomorrowDateStr);
+
+        if (!today) {
+            document.getElementById('status').textContent = 'No data for today!';
+            return;
         }
 
-        function displayStatus(openingTimes) {
-            const now = new Date();
-            const todayDate = now.toISOString().split('T')[0]; // format: yyyy-mm-dd
-            const tomorrowDate = new Date(now);
-            tomorrowDate.setDate(now.getDate() + 1);
-            const tomorrowDateStr = tomorrowDate.toISOString().split('T')[0]; // format: yyyy-mm-dd
+        // Determine today's status
+        let statusMessage = '';
+        let bgColor = '';
 
-            console.log('Today:', todayDate); // Log today’s date for debugging
-            console.log('Opening Times:', openingTimes); // Log the content of the JSON for debugging
-
-            const today = openingTimes.find(entry => entry.date === todayDate);
-            const tomorrow = openingTimes.find(entry => entry.date === tomorrowDateStr);
-
-            if (!today) {
-                document.getElementById('status').textContent = 'No data for today!';
-                return;
-            }
-
-            // Determine today's status
-            let statusMessage = '';
-            let bgColor = '';
-
-            if (today.status === 'Open' && now.getHours() >= today.opening && now.getHours() < today.closing) {
-                statusMessage = 'Open :-)';
-                bgColor = 'green';
-            } else if (today.status === 'Closed') {
-                statusMessage = 'Closed :-(';
-                bgColor = 'red';
-            } else if (today.status === 'Maybe') {
-                statusMessage = 'Maybe?';
-                bgColor = 'orange';
-            } else {
-                statusMessage = 'Closed :-(';
-                bgColor = 'red';
-            }
-
-            // Update the page
-            document.body.style.backgroundColor = bgColor;
-            document.getElementById('status').textContent = statusMessage;
-
-            // Display opening times for today and tomorrow without "Status:"
-            let openingTimesHTML = `<h2>Opening Times:</h2>`;
-            openingTimesHTML += `<strong>Today:</strong> ${today.opening}:00 - ${today.closing === 0 ? '00:00' : today.closing + ':00'}<br>`;
-            if (tomorrow) {
-                openingTimesHTML += `<strong>Tomorrow:</strong> ${tomorrow.opening}:00 - ${tomorrow.closing === 0 ? '00:00' : tomorrow.closing + ':00'}`;
-            }
-            document.getElementById('openingTimes').innerHTML = openingTimesHTML;
-
-            // Display current time in CET
-            const options = {
-                timeZone: 'Europe/Paris',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
-            };
-            const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
-            document.getElementById('time').textContent = `Current Time: ${formattedTime}`;
-
-            // Update time every second
-            setInterval(() => {
-                const updatedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
-                document.getElementById('time').textContent = `Current Time: ${updatedTime}`;
-            }, 1000);
+        if (today.status === 'Open' && now.getHours() >= today.opening && now.getHours() < today.closing) {
+            statusMessage = 'Open :-)';
+            bgColor = 'green';
+        } else if (today.status === 'Closed') {
+            statusMessage = 'Closed :-(';
+            bgColor = 'red';
+        } else if (today.status === 'Maybe') {
+            statusMessage = 'Maybe?';
+            bgColor = 'orange';
+        } else {
+            statusMessage = 'Closed :-(';
+            bgColor = 'red';
         }
 
-        loadOpeningTimes();
-    </script>
+        // Update the page
+        document.body.style.backgroundColor = bgColor;
+        document.getElementById('status').textContent = statusMessage;
+
+        // Display opening times for today and tomorrow without "Status:"
+        let openingTimesHTML = `<h2>Opening Times:</h2>`;
+        openingTimesHTML += `<strong>Today:</strong> ${today.opening}:00 - ${today.closing === 0 ? '00:00' : today.closing + ':00'}<br>`;
+        if (tomorrow) {
+            openingTimesHTML += `<strong>Tomorrow:</strong> ${tomorrow.opening}:00 - ${tomorrow.closing === 0 ? '00:00' : tomorrow.closing + ':00'}`;
+        }
+        document.getElementById('openingTimes').innerHTML = openingTimesHTML;
+
+        // Display current time in CET
+        const options = {
+            timeZone: 'Europe/Paris',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
+        document.getElementById('time').textContent = `Current Time: ${formattedTime}`;
+
+        // Update time every second
+        setInterval(() => {
+            const updatedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
+            document.getElementById('time').textContent = `Current Time: ${updatedTime}`;
+        }, 1000);
+    }
+
+    loadOpeningTimes();
+</script>
+
 </body>
 </html>
