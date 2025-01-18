@@ -65,6 +65,7 @@
             const todayDate = now.toISOString().split('T')[0]; // Format: yyyy-mm-dd
             const tomorrowDate = new Date(now.getTime() + 86400000).toISOString().split('T')[0]; // Add 1 day
 
+            // Find today's and tomorrow's opening data
             const today = openingTimes.find(entry => entry.date === todayDate);
             const tomorrow = openingTimes.find(entry => entry.date === tomorrowDate);
 
@@ -73,8 +74,9 @@
 
             if (today) {
                 const todayOpeningDecimal = timeToDecimal(today.opening);
-                const todayClosingDecimal = today.closing === "24:00" ? 24 : timeToDecimal(today.closing);
+                const todayClosingDecimal = today.closing === "24:00" ? 23.99 : timeToDecimal(today.closing); // Handle 24:00 correctly
 
+                // If current time is within the opening hours of today
                 if (
                     today.status === 'Open' &&
                     currentTimeDecimal >= todayOpeningDecimal &&
@@ -88,6 +90,7 @@
                 }
             }
 
+            // Update the background color and status message
             document.body.style.backgroundColor = bgColor;
             document.getElementById('status').textContent = statusMessage;
 
@@ -95,7 +98,7 @@
             let openingTimesHTML = `<h2>Opening Times:</h2>`;
             openingTimesHTML += today
                 ? `<strong>Today:</strong> ${formatTime(timeToDecimal(today.opening))} - ${formatTime(
-                      today.closing === "24:00" ? 24 : timeToDecimal(today.closing)
+                      today.closing === "24:00" ? 23.99 : timeToDecimal(today.closing)
                   )} - <span class="status-text">${today.status}</span><br>`
                 : `<strong>Today:</strong> No data available.<br>`;
             openingTimesHTML += tomorrow
