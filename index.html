@@ -36,6 +36,14 @@
     <div id="time"></div>
 
     <script>
+        // Format decimal hour to HH:MM
+        function formatTime(hour) {
+            const h = Math.floor(hour);
+            const m = Math.round((hour - h) * 60);
+            return `${h}:${m < 10 ? '0' + m : m}`; // Format time like "10:30"
+        }
+
+        // Fetch opening times from JSON file
         async function loadOpeningTimes() {
             try {
                 const response = await fetch('openingTimes.json');
@@ -50,13 +58,11 @@
             }
         }
 
+        // Display status and opening times on the page
         function displayStatus(openingTimes) {
             const now = new Date();
             const todayDate = now.toISOString().split('T')[0]; // format: yyyy-mm-dd
             const tomorrowDate = new Date(now.setDate(now.getDate() + 1)).toISOString().split('T')[0]; // format: yyyy-mm-dd
-
-            console.log('Today:', todayDate); // Log today’s date for debugging
-            console.log('Opening Times:', openingTimes); // Log the content of the JSON for debugging
 
             const today = openingTimes.find(entry => entry.date === todayDate);
             const tomorrow = openingTimes.find(entry => entry.date === tomorrowDate);
@@ -66,10 +72,12 @@
                 return;
             }
 
-            // Determine today's status
+            const todayOpeningDecimal = timeToDecimal(today.opening);
+            const todayClosingDecimal = timeToDecimal(today.closing);
+
             let statusMessage = '';
             let bgColor = '';
-            if (today.status === 'Open' && now.getHours() + now.getMinutes() / 60 >= today.opening && now.getHours() + now.getMinutes() / 60 < today.closing) {
+            if (today.status === 'Open' && now.getHours() + now.getMinutes() / 60 >= todayOpeningDecimal && now.getHours() + now.getMinutes() / 60 < todayClosingDecimal) {
                 statusMessage = 'Open :-)';
                 bgColor = 'green';
             } else if (today.status === 'Closed') {
@@ -83,19 +91,17 @@
                 bgColor = 'red';
             }
 
-            // Update the page
             document.body.style.backgroundColor = bgColor;
             document.getElementById('status').textContent = statusMessage;
 
             // Display opening times for today and tomorrow without "Status:"
             let openingTimesHTML = `<h2>Opening Times:</h2>`;
-            openingTimesHTML += `<strong>Today:</strong> ${today.opening}:00 - ${today.closing === 24 ? '00:00' : today.closing + ':00'} - ${today.status}<br>`;
+            openingTimesHTML += `<strong>Today:</strong> ${formatTime(today.opening)} - ${formatTime(today.closing)}<br>`;
             if (tomorrow) {
-                openingTimesHTML += `<strong>Tomorrow:</strong> ${tomorrow.opening}:00 - ${tomorrow.closing === 24 ? '00:00' : tomorrow.closing + ':00'} - ${tomorrow.status}`;
+                openingTimesHTML += `<strong>Tomorrow:</strong> ${formatTime(tomorrow.opening)} - ${formatTime(tomorrow.closing)}`;
             }
             document.getElementById('openingTimes').innerHTML = openingTimesHTML;
 
-            // Display current time
             const options = {
                 timeZone: 'Europe/Paris',
                 hour: '2-digit',
@@ -106,11 +112,16 @@
             const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
             document.getElementById('time').textContent = `Current Time: ${formattedTime}`;
 
-            // Update time every second
             setInterval(() => {
                 const updatedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
                 document.getElementById('time').textContent = `Current Time: ${updatedTime}`;
             }, 1000);
+        }
+
+        // Convert HH:MM time to decimal hours
+        function timeToDecimal(time) {
+            const [hours, minutes] = time.split(':').map(Number);
+            return hours + (minutes / 60);
         }
 
         loadOpeningTimes();
