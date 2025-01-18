@@ -16,10 +16,6 @@
             font-size: 48px;
             font-weight: bold;
         }
-        #time {
-            margin-top: 20px;
-            font-size: 20px;
-        }
         #openingTimes {
             margin-top: 30px;
             font-size: 18px;
@@ -35,7 +31,6 @@
 <body>
     <div id="status">Loading...</div>
     <div id="openingTimes"></div>
-    <div id="time"></div>
 
     <script>
         // Format decimal hour to HH:MM
@@ -98,30 +93,15 @@
 
             // Display opening times for today and tomorrow with status in white
             let openingTimesHTML = `<h2>Opening Times:</h2>`;
-            openingTimesHTML += `<strong>Today:</strong> ${formatTime(todayOpeningDecimal)} - ${formatTime(todayClosingDecimal)} <span class="status-text">${today.status}</span><br>`;
+            openingTimesHTML += `<strong>Today:</strong> ${formatTime(todayOpeningDecimal)} - ${formatTime(todayClosingDecimal)} - <span class="status-text">${today.status}</span><br>`;
             if (tomorrow) {
                 const tomorrowOpeningDecimal = timeToDecimal(tomorrow.opening);
                 const tomorrowClosingDecimal = timeToDecimal(tomorrow.closing);
-                openingTimesHTML += `<strong>Tomorrow:</strong> ${formatTime(tomorrowOpeningDecimal)} - ${formatTime(tomorrowClosingDecimal)} <span class="status-text">${tomorrow.status}</span>`;
+                openingTimesHTML += `<strong>Tomorrow:</strong> ${formatTime(tomorrowOpeningDecimal)} - ${formatTime(tomorrowClosingDecimal)} - <span class="status-text">${tomorrow.status}</span>`;
             } else {
                 openingTimesHTML += `<strong>Tomorrow:</strong> No data available.`;
             }
             document.getElementById('openingTimes').innerHTML = openingTimesHTML;
-
-            const options = {
-                timeZone: 'Europe/Paris',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
-            };
-            const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
-            document.getElementById('time').textContent = `Current Time: ${formattedTime}`;
-
-            setInterval(() => {
-                const updatedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
-                document.getElementById('time').textContent = `Current Time: ${updatedTime}`;
-            }, 1000);
         }
 
         // Convert time to decimal hours (e.g., "10:30" -> 10.5, "9" -> 9)
