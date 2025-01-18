@@ -103,6 +103,8 @@
                 const tomorrowOpeningDecimal = timeToDecimal(tomorrow.opening);
                 const tomorrowClosingDecimal = timeToDecimal(tomorrow.closing);
                 openingTimesHTML += `<strong>Tomorrow:</strong> ${formatTime(tomorrowOpeningDecimal)} - ${formatTime(tomorrowClosingDecimal)} <span class="status-text">${tomorrow.status}</span>`;
+            } else {
+                openingTimesHTML += `<strong>Tomorrow:</strong> No data available.`;
             }
             document.getElementById('openingTimes').innerHTML = openingTimesHTML;
 
