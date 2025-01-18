@@ -120,8 +120,11 @@
 
         // Convert HH:MM time to decimal hours
         function timeToDecimal(time) {
-            const [hours, minutes] = time.split(':').map(Number);
-            return hours + (minutes / 60);
+            if (typeof time === 'string') {
+                const [hours, minutes] = time.split(':').map(Number);
+                return hours + (minutes / 60);
+            }
+            return time; // Return the time as is if it's already a number
         }
 
         loadOpeningTimes();
