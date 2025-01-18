@@ -73,19 +73,20 @@
             let bgColor = '';
             let statusColor = 'white';  // Default text color for status
 
-            if (today.status === 'Open' && now.getHours() >= today.opening && now.getHours() < today.closing) {
-                statusMessage = 'Open :-)';
-                bgColor = 'green';
-            } else if (today.status === 'Closed') {
-                statusMessage = 'Closed :-(';
-                bgColor = 'red';
-            } else if (today.status === 'Maybe') {
-                statusMessage = 'Maybe?';
-                bgColor = 'orange';
-            } else {
-                statusMessage = 'Closed :-(';
-                bgColor = 'red';
-            }
+if (today.status === 'Open' && now.getHours() + now.getMinutes() / 60 >= today.opening && now.getHours() + now.getMinutes() / 60 < today.closing) {
+    statusMessage = 'Open :-)';
+    bgColor = 'green';
+} else if (today.status === 'Closed') {
+    statusMessage = 'Closed :-(';
+    bgColor = 'red';
+} else if (today.status === 'Maybe') {
+    statusMessage = 'Maybe?';
+    bgColor = 'orange';
+} else {
+    statusMessage = 'Closed :-(';
+    bgColor = 'red';
+}
+
 
             // Update the page background color based on today's status
             document.body.style.backgroundColor = bgColor;
