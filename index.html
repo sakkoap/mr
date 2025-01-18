@@ -54,14 +54,21 @@
 
         function displayStatus(openingTimes) {
             const now = new Date();
-            const currentHour = now.getHours();
+            const todayDate = now.toISOString().split('T')[0];
+            const tomorrowDate = new Date(now.setDate(now.getDate() + 1)).toISOString().split('T')[0];
 
-            const today = openingTimes[0];
-            let statusMessage = '';
-            let bgColor = '';
+            const today = openingTimes.find(entry => entry.date === todayDate);
+            const tomorrow = openingTimes.find(entry => entry.date === tomorrowDate);
+
+            if (!today) {
+                document.getElementById('status').textContent = 'No data for today!';
+                return;
+            }
 
             // Determine today's status
-            if (today.status === 'Open' && currentHour >= today.opening && currentHour < today.closing) {
+            let statusMessage = '';
+            let bgColor = '';
+            if (today.status === 'Open' && now.getHours() >= today.opening && now.getHours() < today.closing) {
                 statusMessage = 'Open :-)';
                 bgColor = 'green';
             } else if (today.status === 'Closed') {
@@ -70,40 +77,3 @@
             } else if (today.status === 'Maybe') {
                 statusMessage = 'Maybe?';
                 bgColor = 'orange';
-            } else {
-                statusMessage = 'Closed :-(';
-                bgColor = 'red';
-            }
-
-            // Update the page
-            document.body.style.backgroundColor = bgColor;
-            document.getElementById('status').textContent = statusMessage;
-
-            // Display opening times
-            const openingTimesHTML = openingTimes
-                .map(day => `${day.day}: ${day.opening}:00 - ${day.closing === 0 ? '00:00' : day.closing + ':00'} - Status: ${day.status}`)
-                .join('<br>');
-            document.getElementById('openingTimes').innerHTML = `<h2>Opening Times:</h2>${openingTimesHTML}`;
-
-            // Display current time
-            const options = {
-                timeZone: 'Europe/Paris',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
-            };
-            const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(now);
-            document.getElementById('time').textContent = `Current Time: ${formattedTime}`;
-
-            // Update time every second
-            setInterval(() => {
-                const updatedTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
-                document.getElementById('time').textContent = `Current Time: ${updatedTime}`;
-            }, 1000);
-        }
-
-        loadOpeningTimes();
-    </script>
-</body>
-</html>
