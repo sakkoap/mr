@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Cafe Status</title>
     <style>
         body {
@@ -40,10 +43,10 @@
             return `${h}:${m < 10 ? '0' + m : m}`; // Format time like "10:30"
         }
 
-        // Fetch opening times from JSON file
+        // Fetch opening times from JSON file with cache-busting
         async function loadOpeningTimes() {
             try {
-                const response = await fetch('openingTimes.json');
+                const response = await fetch('openingTimes.json?v=' + new Date().getTime());
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
