@@ -79,7 +79,11 @@
             let bgColor = '';
             const currentTimeDecimal = now.getHours() + now.getMinutes() / 60;
 
-            if (today.status === 'Open' && currentTimeDecimal >= todayOpeningDecimal && currentTimeDecimal < todayClosingDecimal) {
+            if (
+                today.status === 'Open' &&
+                currentTimeDecimal >= todayOpeningDecimal &&
+                (todayClosingDecimal === 24 || currentTimeDecimal < todayClosingDecimal)
+            ) {
                 statusMessage = 'Open :-)';
                 bgColor = 'green';
             } else if (today.status === 'Closed') {
@@ -109,9 +113,12 @@
             document.getElementById('openingTimes').innerHTML = openingTimesHTML;
         }
 
-        // Convert time to decimal hours (e.g., "10:30" -> 10.5, "9" -> 9)
+        // Convert time to decimal hours (e.g., "10:30" -> 10.5, "24:00" -> 24)
         function timeToDecimal(time) {
             if (typeof time === 'string') {
+                if (time === '24:00') {
+                    return 24; // Interpret as the end of the day
+                }
                 const [hours, minutes] = time.split(':').map(Number);
                 return hours + (minutes / 60);
             } else if (typeof time === 'number') {
