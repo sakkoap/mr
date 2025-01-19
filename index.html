@@ -34,22 +34,14 @@
             font-size: 16px;
             color: white;
         }
-        #timestamp {
-            font-size: 12px;
-            color: gray;
-        }
     </style>
 </head>
 <body>
     <div id="status">Loading...</div>
     <div id="openingTimes"></div>
     <div id="currentTime"></div>
-    <div id="timestamp"></div>
 
     <script>
-        // Timestamp when the code was provided
-        const providedTimestamp = "2025-01-19T00:00:00Z"; // Example timestamp when this response was provided
-
         // Format decimal hour to HH:MM
         function formatTime(hour) {
             const h = Math.floor(hour);
@@ -74,7 +66,6 @@
                 const openingTimes = await response.json();
                 displayStatus(openingTimes);
             } catch (error) {
-                console.error('Error loading opening times:', error);
                 document.getElementById('status').textContent = 'Error loading data!';
             }
         }
@@ -133,9 +124,6 @@
 
             // Display the current date and time
             document.getElementById('currentTime').textContent = `Current Date and Time: ${now.toLocaleString()}`;
-
-            // Display timestamp when the code was provided
-            document.getElementById('timestamp').textContent = `Code Provided Timestamp: ${providedTimestamp}`;
         }
 
         // Convert time to decimal hours (e.g., "10:30" -> 10.5)
