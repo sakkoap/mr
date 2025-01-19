@@ -13,9 +13,9 @@
   },
   {
     "date": "2025-01-21",
-    "opening": 9,
-    "closing": 18,
-    "status": "Maybe"
+    "opening": "16:00",
+    "closing": "23:00",
+    "status": "Open"
   },
   {
     "date": "2025-01-22",
