@@ -103,7 +103,6 @@
             document.getElementById('error').style.display = 'none'; // Hide error message
         }
 
-// Display status and opening times on the page
 function displayStatus(openingTimes) {
     const now = new Date();
     const currentTimeDecimal = now.getHours() + now.getMinutes() / 60;
@@ -120,18 +119,18 @@ function displayStatus(openingTimes) {
         const todayOpeningDecimal = timeToDecimal(today.opening);
         const todayClosingDecimal = today.closing === "24:00" ? 23.99 : timeToDecimal(today.closing);
 
-        if (
-            today.status === 'Open' &&
-            currentTimeDecimal >= todayOpeningDecimal &&
-            currentTimeDecimal < todayClosingDecimal
-        ) {
-            statusMessage = 'Open :-)';
-            bgColor = 'green';
+        if (today.status === 'Open') {
+            if (currentTimeDecimal >= todayOpeningDecimal && currentTimeDecimal < todayClosingDecimal) {
+                statusMessage = 'Open :-)';
+                bgColor = 'green';
+            } else {
+                statusMessage = 'Closed :-('; // Explicitly handle "Open" but outside hours
+                bgColor = 'red';
+            }
         } else if (today.status === 'Closed') {
             statusMessage = 'Closed :-(';
             bgColor = 'red';
         } else {
-            // For any other status, display ?
             statusMessage = 'Maybe ?';
             bgColor = 'orange';
         }
@@ -165,6 +164,7 @@ function displayStatus(openingTimes) {
 
     document.getElementById('openingTimes').innerHTML = openingTimesHTML;
 }
+
 
 
         function timeToDecimal(time) {
