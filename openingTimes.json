@@ -1,11 +1,5 @@
 [
   {
-    "date": "2025-01-19",
-    "opening": "10:00",
-    "closing": "16:30",
-    "status": "Open"
-  },
-  {
     "date": "2025-01-20",
     "opening": "20:00",
     "closing": "23:00",
@@ -13,7 +7,7 @@
   },
   {
     "date": "2025-01-21",
-    "opening": "16:00",
+    "opening": "10:00",
     "closing": "23:00",
     "status": "Open"
   },
