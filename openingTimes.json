@@ -24,7 +24,940 @@
   },
   {
     "date": "2025-01-24",
-    "periods": [],
-    "status": "Closed"
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+        "status": "Maybe"
+  },
+  {
+    "date": "2025-01-25",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-01-26",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-01-27",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-01-28",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-01-29",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-01-30",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-01-31",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-01",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-02",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-03",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-04",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-05",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-06",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-07",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-08",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-09",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-10",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-11",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-12",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-13",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-14",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-15",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-16",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-17",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-18",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-19",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-20",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-21",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-22",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-23",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-24",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-25",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-26",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-27",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-02-28",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-01",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-02",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-03",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-04",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-05",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-06",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-07",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-08",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-09",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-10",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-11",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-12",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-13",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-14",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-15",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-16",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-17",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-18",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-19",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-20",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-21",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-22",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-23",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-24",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-25",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-26",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-27",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-28",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-29",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-30",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
+  },
+  {
+    "date": "2025-03-31",
+    "periods": [
+      {
+        "opening": "10:00",
+        "closing": "12:00"
+      },
+      {
+        "opening": "20:00",
+        "closing": "23:00"
+      }
+    ],
+    "status": "Maybe"
   }
 ]
