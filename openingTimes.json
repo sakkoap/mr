@@ -17,8 +17,7 @@
   {
     "date": "2025-01-23",
     "periods": [
-      { "opening": "10:00", "closing": "12:00" },
-      { "opening": "16:00", "closing": "19:30" }
+      { "opening": "10:00", "closing": "23:00" }
     ],
     "status": "Open"
   },
