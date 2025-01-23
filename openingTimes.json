@@ -26,8 +26,8 @@
     "periods": [
       {
         "opening": "13:00",
-        "closing": "00:00"
-      },
+        "closing": "24:00"
+      }
     ],
         "status": "Open"
   },
