@@ -4,7 +4,7 @@
     "periods": [
       {
         "opening": "13:00",
-        "closing": "00:00"
+        "closing": "24:00"
       }
     ],
         "status": "Open"
@@ -13,7 +13,7 @@
     "date": "2025-01-25",
     "periods": [
       {
-        "opening": "10:00",
+        "opening": "10:30",
         "closing": "00:00"
       }
     ],
