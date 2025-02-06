@@ -13,11 +13,7 @@
     "date": "2025-02-07",
     "periods": [
       {
-        "opening": "10:00",
-        "closing": "12:00"
-      },
-      {
-        "opening": "21:00",
+        "opening": "16:00",
         "closing": "24:00"
       }
     ],
