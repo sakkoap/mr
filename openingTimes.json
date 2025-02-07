@@ -1,15 +1,5 @@
 [
   {
-    "date": "2025-02-06",
-    "periods": [
-      {
-        "opening": "10:00",
-        "closing": "23:00"
-      }
-    ],
-    "status": "Open"
-  },
-  {
     "date": "2025-02-07",
     "periods": [
       {
