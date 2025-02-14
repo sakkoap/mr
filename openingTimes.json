@@ -43,15 +43,11 @@
     "date": "2025-02-16",
     "periods": [
       {
-        "opening": "10:00",
-        "closing": "12:00"
+        "opening": "13:30",
+        "closing": "16:30"
       },
-      {
-        "opening": "20:00",
-        "closing": "23:00"
-      }
     ],
-    "status": "Maybe"
+    "status": "Open"
   },
   {
     "date": "2025-02-17",
