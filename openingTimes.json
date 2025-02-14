@@ -1,25 +1,5 @@
 [
   {
-    "date": "2025-02-12",
-    "periods": [
-      {
-        "opening": "10:00",
-        "closing": "23:00"
-      }
-    ],
-    "status": "Open"
-  },
-  {
-    "date": "2025-02-13",
-    "periods": [
-      {
-        "opening": "10:00",
-        "closing": "23:00"
-      }
-    ],
-    "status": "Open"
-  },
-  {
     "date": "2025-02-14",
     "periods": [
       {
@@ -45,7 +25,7 @@
       {
         "opening": "13:30",
         "closing": "16:30"
-      },
+      }
     ],
     "status": "Open"
   },
