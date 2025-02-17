@@ -54,10 +54,6 @@
     "periods": [
       {
         "opening": "10:00",
-        "closing": "12:00"
-      },
-      {
-        "opening": "20:00",
         "closing": "23:00"
       }
     ],
