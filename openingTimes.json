@@ -37,7 +37,7 @@
         "closing": "23:00"
       }
     ],
-    "status": "Maybe"
+    "status": "Open"
   },
   {
     "date": "2025-02-18",
@@ -47,7 +47,7 @@
         "closing": "20:00"
       }
     ],
-    "status": "Maybe"
+    "status": "Open"
   },
   {
     "date": "2025-02-19",
@@ -57,7 +57,7 @@
         "closing": "23:00"
       }
     ],
-    "status": "Maybe"
+    "status": "Open"
   },
   {
     "date": "2025-02-20",
