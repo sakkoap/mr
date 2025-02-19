@@ -1,55 +1,5 @@
 [
   {
-    "date": "2025-02-14",
-    "periods": [
-      {
-        "opening": "10:00",
-        "closing": "24:00"
-      }
-    ],
-    "status": "Open"
-  },
-  {
-    "date": "2025-02-15",
-    "periods": [
-      {
-        "opening": "10:00",
-        "closing": "24:00"
-      }
-    ],
-    "status": "Open"
-  },
-  {
-    "date": "2025-02-16",
-    "periods": [
-      {
-        "opening": "10:00",
-        "closing": "16:30"
-      }
-    ],
-    "status": "Open"
-  },
-  {
-    "date": "2025-02-17",
-    "periods": [
-      {
-        "opening": "10:00",
-        "closing": "23:00"
-      }
-    ],
-    "status": "Open"
-  },
-  {
-    "date": "2025-02-18",
-    "periods": [
-      {
-        "opening": "10:00",
-        "closing": "20:00"
-      }
-    ],
-    "status": "Open"
-  },
-  {
     "date": "2025-02-19",
     "periods": [
       {
@@ -64,28 +14,20 @@
     "periods": [
       {
         "opening": "10:00",
-        "closing": "12:00"
+        "closing": "19:30"
       },
-      {
-        "opening": "20:00",
-        "closing": "23:00"
-      }
     ],
-    "status": "Maybe"
+    "status": "Open"
   },
   {
     "date": "2025-02-21",
     "periods": [
       {
         "opening": "10:00",
-        "closing": "12:00"
+        "closing": "20:30"
       },
-      {
-        "opening": "20:00",
-        "closing": "23:00"
-      }
     ],
-    "status": "Maybe"
+    "status": "Open"
   },
   {
     "date": "2025-02-22",
