@@ -20,16 +20,6 @@
     "status": "Open"
   },
   {
-    "date": "2025-03-27",
-    "periods": [
-      {
-        "opening": "10:00",
-        "closing": "16:00"
-      }
-    ],
-    "status": "Open"
-  },
-  {
     "date": "2025-03-31",
     "periods": [
       {
@@ -48,5 +38,5 @@
       }
     ],
     "status": "Open"
-  }
+   }
 ]
