@@ -1,42 +1,32 @@
 [
   {
-    "date": "2025-03-25",
+    "date": "2025-04-06",
     "periods": [
       {
-        "opening": "10:00",
-        "closing": "20:00"
+        "opening": "13:30",
+        "closing": "17:00"
       }
     ],
     "status": "Open"
   },
   {
-    "date": "2025-03-26",
+    "date": "2025-04-07",
     "periods": [
       {
-        "opening": "10:00",
-        "closing": "16:00"
-      }
-    ],
-    "status": "Open"
-  },
-  {
-    "date": "2025-03-31",
-    "periods": [
-      {
-        "opening": "16:00",
+        "opening": "12:30",
         "closing": "23:00"
       }
     ],
     "status": "Open"
   },
   {
-    "date": "2025-04-01",
+    "date": "2025-04-08",
     "periods": [
       {
-        "opening": "12:00",
+        "opening": "10:00",
         "closing": "23:00"
       }
     ],
     "status": "Open"
-   }
+  }
 ]
